@@ -1,0 +1,48 @@
+# General
+server:
+  error:
+    include-stacktrace: NEVER
+
+
+### MariaDB
+spring:
+  datasource:
+    password: password
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: root
+    url: jdbc:mariadb://localhost:3306/webshop
+
+  jpa:
+    generate-ddl: false
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: 'true'
+    show-sql: true
+    hibernate:
+        naming:
+          physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+  # Flyway configurations
+  flyway:
+    baseline-on-migrate: 'true'
+    locations: classpath:/db/migration
+    table: schema_history
+
+
+# Keycloak configurations
+
+keycloak:
+  auth-server-url: http://localhost:8010/auth
+  realm: webshop
+  resource: webshop-client
+  public-client: true
+
+### Custom configurations
+
+# Keycloak custom values
+webshop:
+  keycloak:
+    username: user1
+    password: password
