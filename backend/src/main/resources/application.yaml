@@ -7,7 +7,7 @@ server:
 ### MariaDB
 spring:
   datasource:
-    password: password
+    password: changeme
     driver-class-name: org.mariadb.jdbc.Driver
     username: root
     url: jdbc:mariadb://localhost:3306/webshop

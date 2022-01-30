@@ -1,0 +1,20 @@
+version: '3.9'
+services:
+
+  mariadb:
+    image: mariadb:10.3.32
+    environment:
+      MYSQL_ROOT_PASSWORD: changeme
+      MYSQL_DATABASE: webshop
+      MYSQL_USER: root
+      MYSQL_PASSWORD: changeme
+    ports:
+      - "3306:3306"
+
+  keycloak:
+    image:  my-keycloak:latest
+    environment:
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+    ports:
+      - "8010:8080"

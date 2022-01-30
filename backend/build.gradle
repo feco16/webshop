@@ -18,6 +18,7 @@ dependencies {
     // Starters
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation('org.springframework.boot:spring-boot-starter-security')
+    implementation('org.springframework.boot:spring-boot-starter-webflux')
 
     // Database
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')
@@ -33,6 +34,14 @@ dependencies {
     implementation("org.keycloak:keycloak-admin-client:15.0.2")
 
     annotationProcessor 'org.projectlombok:lombok'
+
+    // test
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation('org.junit.jupiter:junit-jupiter-api:5.8.1')
+    testImplementation('org.junit.jupiter:junit-jupiter-engine:5.8.1')
+    testImplementation group: 'org.testcontainers', name: 'testcontainers', version: '1.16.3'
+    testImplementation "org.testcontainers:junit-jupiter:1.16.3"
+    testImplementation group: 'org.testcontainers', name: 'mariadb', version: '1.16.3'
 }
 
 test {
