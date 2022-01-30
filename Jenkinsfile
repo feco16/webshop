@@ -1,9 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('Test') {
+        stage('Build') {
             steps {
-                echo 'test'
+                sh './gradlew build'
             }
         }
     }
