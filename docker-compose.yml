@@ -3,6 +3,7 @@ services:
 
   mariadb:
     image: mariadb:10.3.32
+    container_name: mariadb
     environment:
       MYSQL_ROOT_PASSWORD: changeme
       MYSQL_DATABASE: webshop
@@ -12,9 +13,22 @@ services:
       - "3306:3306"
 
   keycloak:
-    image:  my-keycloak:latest
+    image: my-keycloak:latest
+    container_name: keycloak
     environment:
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: admin
     ports:
       - "8010:8080"
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    privileged: true
+    user: root
+    ports:
+      - "8020:8080"
+      - "50000:50000"
+    volumes:
+      - d:/progs/jenkins_compose:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
