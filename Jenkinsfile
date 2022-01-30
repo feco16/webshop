@@ -5,6 +5,12 @@ pipeline {
             steps {
                 sh './gradlew backend:test'
             }
+
+            post {
+                always {
+                    junit 'build/reports/**/*.xml'
+                }
+            }
         }
     }
 }
