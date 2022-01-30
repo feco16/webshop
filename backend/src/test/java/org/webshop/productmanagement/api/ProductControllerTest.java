@@ -18,20 +18,20 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @Testcontainers
 public class ProductControllerTest {
 
-//    @Container
-//    private static MariaDBContainer mariaDBContainer = new MariaDBContainer<>("mariadb:10.3.32");
+    @Container
+    private static MariaDBContainer mariaDBContainer = new MariaDBContainer<>("mariadb:10.3.32");
 
     @LocalServerPort
     private int port;
 
     private final WebClient webClient = WebClient.create();
 
-//    @DynamicPropertySource
-//    public  static void overrideProps(DynamicPropertyRegistry registry) {
-//        registry.add("spring.datasource.url", mariaDBContainer::getJdbcUrl);
-//        registry.add("spring.datasource.username", mariaDBContainer::getUsername);
-//        registry.add("spring.datasource.password", mariaDBContainer::getPassword);
-//    }
+    @DynamicPropertySource
+    public  static void overrideProps(DynamicPropertyRegistry registry) {
+        registry.add("spring.datasource.url", mariaDBContainer::getJdbcUrl);
+        registry.add("spring.datasource.username", mariaDBContainer::getUsername);
+        registry.add("spring.datasource.password", mariaDBContainer::getPassword);
+    }
 
     @Test
     public void getStocks_validToken_returnsAll() {

@@ -6,11 +6,12 @@ pipeline {
                 sh './gradlew backend:test'
             }
 
-            post {
-                always {
-                    junit 'build/reports/**/*.xml'
-                }
-            }
+        }
+    }
+
+    post {
+        always {
+            junit 'build/reports/**/*.xml'
         }
     }
 }
