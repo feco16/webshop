@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh './gradlew backend:test'
+                sh 'echo "sleep 30s" && sleep 30s && echo "end"'
             }
 
         }
