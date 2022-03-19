@@ -1,3 +1,4 @@
 rootProject.name = 'webshop'
 include 'backend'
 include 'usermanagement-client'
+include 'productmanagement-client'

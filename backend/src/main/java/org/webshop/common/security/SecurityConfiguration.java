@@ -47,7 +47,7 @@ public class SecurityConfiguration extends KeycloakWebSecurityConfigurerAdapter 
                 .csrf()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/products")
+                .antMatchers("/products**", "/users**")
                 .permitAll()
                 .antMatchers("/account")
                 .hasRole("user")
