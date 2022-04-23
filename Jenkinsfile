@@ -10,6 +10,11 @@ pipeline {
             }
 
         }
+        stage('Test') {
+            steps {
+               sh 'gradlew test'
+            }
+        }
     }
 
     // TODO reporting is not working - the results can be seend only by accessing the files from jenkins
