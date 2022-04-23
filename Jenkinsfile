@@ -6,13 +6,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo "sleep 30s" && sleep 30s && echo "end"'
+                sh './gradlew build'
             }
 
         }
         stage('Test') {
             steps {
-               sh 'gradlew test'
+               sh './gradlew test'
             }
         }
     }
