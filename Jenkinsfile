@@ -6,13 +6,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh './gradlew build'
+                sh './gradlew build -Dorg.gradle.java.home=/home/pi/.sdkman/candidates/java/17.0.1-librca'
             }
 
         }
         stage('Test') {
             steps {
-               sh './gradlew test'
+               sh './gradlew test -Dorg.gradle.java.home=/home/pi/.sdkman/candidates/java/17.0.1-librca'
             }
         }
     }
